@@ -50,6 +50,7 @@ for i, col in enumerate(payment_columns):
 
 plt.tight_layout()
 plt.show()
+```
 
 ## Análise dos Histogramas
 
