@@ -9,27 +9,44 @@ Kelvin Rafael Dantas Barroso
 Mayke Alves Amancio
 
 ## Descrição
+# Correção da Atividade 2
 
-Este repositório contém a atividade prática de Python utilizando o dataset `default_of_credit_card_clients`.
+Professor, segue a correção conforme o modelo enviado, incluindo os histogramas das faturas BILL_AMT1 a BILL_AMT6 e dos pagamentos PAY_AMT1 a PAY_AMT6.
 
-A atividade analisa características financeiras do dataset, como valores de fatura e valores de pagamento, utilizando as bibliotecas Pandas, NumPy e Matplotlib.
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
 
-## Arquivos
+file_path = "default_of_credit_card_clients.xls"
+df = pd.read_excel(file_path)
 
-- `atividade2_python_ciencia_dados.ipynb`: notebook com todos os exercícios resolvidos.
-- `default_of_credit_card_clients.xls`: planilha usada na análise.
-- `requirements.txt`: bibliotecas necessárias.
+# Histogramas das faturas
+bill_columns = ['BILL_AMT1', 'BILL_AMT2', 'BILL_AMT3', 'BILL_AMT4', 'BILL_AMT5', 'BILL_AMT6']
 
-## Exercícios realizados
+fig, axes = plt.subplots(2, 3, figsize=(15, 10))
+axes = axes.flatten()
 
-1. Criação de listas com nomes das características financeiras.
-2. Uso do `.describe()` para analisar valores de fatura.
-3. Histogramas das características de valor da fatura.
-4. Uso do `.describe()` para analisar valores de pagamento.
-5. Histogramas dos valores de pagamento com rotação nos rótulos.
-6. Máscara booleana para identificar pagamentos iguais a zero.
-7. Transformação logarítmica dos pagamentos diferentes de zero usando `apply()` e `np.log10()`.
+for i, col in enumerate(bill_columns):
+    axes[i].hist(df[col], bins=20, color='blue', alpha=0.7)
+    axes[i].set_title(f'Histograma de {col}')
+    axes[i].set_xlabel('Valor')
+    axes[i].set_ylabel('Frequência')
 
-## Como executar
+plt.tight_layout()
+plt.show()
 
-Abra o arquivo `.ipynb` no Jupyter Notebook, Google Colab ou VS Code e execute as células em ordem.
+# Histogramas dos pagamentos
+payment_columns = ['PAY_AMT1', 'PAY_AMT2', 'PAY_AMT3', 'PAY_AMT4', 'PAY_AMT5', 'PAY_AMT6']
+
+fig, axes = plt.subplots(2, 3, figsize=(15, 10))
+axes = axes.flatten()
+
+for i, col in enumerate(payment_columns):
+    axes[i].hist(df[col], bins=20, color='green', alpha=0.7)
+    axes[i].set_title(f'Histograma de {col}')
+    axes[i].set_xlabel('Valor')
+    axes[i].set_ylabel('Frequência')
+    axes[i].tick_params(axis='x', rotation=45)
+
+plt.tight_layout()
+plt.show()
