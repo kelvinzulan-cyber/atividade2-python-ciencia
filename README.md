@@ -50,3 +50,11 @@ for i, col in enumerate(payment_columns):
 
 plt.tight_layout()
 plt.show()
+
+## Análise dos Histogramas
+
+Os histogramas das variáveis BILL_AMT1 até BILL_AMT6 representam os valores das faturas dos clientes nos seis meses analisados. Observa-se que a maioria dos clientes possui valores concentrados em faixas mais baixas, enquanto poucos clientes apresentam valores muito altos.
+
+Os histogramas das variáveis PAY_AMT1 até PAY_AMT6 representam os valores pagos pelos clientes. Também é possível perceber que a maioria dos pagamentos está concentrada em valores baixos ou próximos de zero, enquanto poucos clientes realizaram pagamentos muito elevados.
+
+De forma geral, os gráficos apresentam uma distribuição assimétrica à direita, com concentração em valores menores e presença de valores extremos.
